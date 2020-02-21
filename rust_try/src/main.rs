@@ -14,7 +14,8 @@
 //mod cli;
 //mod shadowing;
 //mod references;
-mod passbyref;
+//mod passbyref;
+mod struct_serialization;
 
 fn main() {
     println!("Hello from main.rs");
@@ -35,5 +36,6 @@ fn main() {
 //    cli::run();
 //    shadowing::run();
 //    references::run();
-    passbyref::run();
+//    passbyref::run();
+    struct_serialization::serialize_deserialize();
 }
