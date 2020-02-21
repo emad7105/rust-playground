@@ -1,0 +1,23 @@
+[package]
+name = "wasm-crypto-playgound"
+version = "0.1.0"
+authors = ["Emad Heydari Beni <emad@heydari.be>"]
+edition = "2018"
+
+# ------- added by Emad
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "0.2.58"
+js-sys = "0.3.35"
+
+[dependencies.web-sys]
+version = "0.3.35"
+features = [
+  "Crypto",
+  "WorkerGlobalScope",
+]
+
+# ------- added by Emad

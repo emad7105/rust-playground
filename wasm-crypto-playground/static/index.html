@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="module">
+    //import init, {greet} from '../pkg/wasm_crypto_playgound.js';
+    import init, {greet} from '../pkg/wasm_crypto_playgound.js';
+
+    async function run() {
+        await init();
+        //get_random();
+        greet("Emad");
+    }
+
+    run();
+</script>
+
+</body>
+</html>
