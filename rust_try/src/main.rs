@@ -15,8 +15,8 @@
 //mod shadowing;
 //mod references;
 //mod passbyref;
-//mod struct_serialization;
-mod hashmap;
+mod struct_serialization;
+//mod hashmap;
 
 fn main() {
     println!("Hello from main.rs");
@@ -38,6 +38,6 @@ fn main() {
 //    shadowing::run();
 //    references::run();
 //    passbyref::run();
-//    struct_serialization::serialize_deserialize();
-    hashmap::play_hashmap();
+    struct_serialization::serialize_deserialize();
+//    hashmap::play_hashmap();
 }

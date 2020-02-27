@@ -1,4 +1,4 @@
-use wasm_bindgen::JsCast;
+/*use wasm_bindgen::JsCast;
 
 pub fn crypto() -> web_sys::Crypto {
     return js_sys::global().crypto().unwrap();
@@ -7,4 +7,4 @@ pub fn crypto() -> web_sys::Crypto {
         .unwrap()
         .crypto()
         .unwrap()*/
-}
+}*/

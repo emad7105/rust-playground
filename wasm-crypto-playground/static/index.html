@@ -8,12 +8,13 @@
 
 <script type="module">
     //import init, {greet} from '../pkg/wasm_crypto_playgound.js';
-    import init, {greet} from '../pkg/wasm_crypto_playgound.js';
+    import init, {greet, lets_log} from '../pkg/wasm_crypto_playgound.js';
 
     async function run() {
         await init();
         //get_random();
         greet("Emad");
+        lets_log();
     }
 
     run();
