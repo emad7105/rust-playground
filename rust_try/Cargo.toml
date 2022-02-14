@@ -4,8 +4,40 @@ version = "0.1.0"
 authors = ["Emad Heydari Beni <emad@heydari.be>"]
 edition = "2018"
 
+[[bin]]
+# -- grpc --
+# terminal: cargo run --bin helloworld-server
+name = "default-run"
+path = "src/main.rs"
+
+[[bin]]
+# -- grpc --
+# terminal: cargo run --bin helloworld-server
+name = "helloworld-server"
+path = "src/grpc/server.rs"
+
+[[bin]]
+# -- grpc --
+# terminal: cargo run --bin helloworld-client
+name = "helloworld-client"
+path = "src/grpc/client.rs"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 bincode = "1.2.1"
 serde = { version = "1.0.63", features = ["derive"] }
+rand = "0.8.4"
+aes-gcm-siv = "0.10.3"
+multimap = "0.8.3"
+evmap = "10.0.2"
+
+# -- grpc --
+tonic = "0.6.2" # grpc
+prost = "0.9.0" # protobufs
+tokio = {version="1.15.0", features = ["macros", "rt-multi-thread"] }
+
+
+[build-dependencies]
+# -- grpc --
+tonic-build = "0.6.2"

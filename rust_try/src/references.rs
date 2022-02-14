@@ -14,5 +14,10 @@ pub fn run() {
         *mutxr += 1;
     }
 
-    print!("Value of (x) is {}", x);
+    println!("Value of (x) is {}", x);
+
+    let mut y = 10;
+    let muty = &mut y;
+    *muty += 1;
+    println!("Value of (y) is {}", y);
 }

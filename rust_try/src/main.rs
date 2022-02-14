@@ -13,10 +13,15 @@
 //mod enums;
 //mod cli;
 //mod shadowing;
-//mod references;
+// mod references;
 //mod passbyref;
-mod struct_serialization;
+//mod struct_serialization;
 //mod hashmap;
+// mod constant;
+// mod options;
+// mod aes;
+// mod multi_maps;
+mod concurrent_multipmaps;
 
 fn main() {
     println!("Hello from main.rs");
@@ -38,6 +43,11 @@ fn main() {
 //    shadowing::run();
 //    references::run();
 //    passbyref::run();
-    struct_serialization::serialize_deserialize();
+//    struct_serialization::serialize_deserialize();
 //    hashmap::play_hashmap();
+//    constant::run();
+//    options::run();
+//     aes::run();
+//    multi_maps::run();
+    concurrent_multipmaps::run();
 }
