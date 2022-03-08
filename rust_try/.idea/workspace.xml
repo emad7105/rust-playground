@@ -16,20 +16,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee383ead-a475-456f-944b-50f27b80c0c9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/grpc/client.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/grpc/client.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/options.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/options.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pointers.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/pointers.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wasm-crypto-playground/Cargo.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wasm-crypto-playground/src/browser_crypto.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wasm-crypto-playground/src/lib.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wasm-crypto-playground/static/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wasm-rust-hello-world/.idea/wasm-rust-hello-world.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wasm-rust-hello-world/Cargo.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wasm-rust-hello-world/src/lib.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wasm-rust-hello-world/static/index.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +163,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Cargo.Test aes::test_aes::test_encrypt_decrypt">
+  <component name="RunManager" selected="Cargo.Run default-run">
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -192,6 +182,22 @@
       <option name="isRedirectInput" value="false" />
       <option name="redirectInputPath" value="" />
       <method v="2" />
+    </configuration>
+    <configuration name="Run default-run" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="run --package rust_try --bin default-run" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <envs />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Run rust_try" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="run --package rust_try --bin rust_try" />
@@ -239,6 +245,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo.Run default-run" />
         <item itemvalue="Cargo.Test aes::test_aes::test_encrypt_decrypt" />
         <item itemvalue="Cargo.Run rust_try" />
       </list>
@@ -280,7 +287,12 @@
       <workItem from="1642768050037" duration="6109000" />
       <workItem from="1643806403299" duration="13780000" />
       <workItem from="1644233416052" duration="276000" />
-      <workItem from="1644236863077" duration="12871000" />
+      <workItem from="1644236863077" duration="13816000" />
+      <workItem from="1645031075377" duration="5000" />
+      <workItem from="1646141949893" duration="628000" />
+      <workItem from="1646398821693" duration="530000" />
+      <workItem from="1646405955342" duration="2338000" />
+      <workItem from="1646657983502" duration="3554000" />
     </task>
     <servers />
   </component>
