@@ -22,7 +22,9 @@
 // mod aes;
 // mod multi_maps;
 // mod concurrent_multipmaps;
-mod chacha20_poly1305;
+// mod chacha20_poly1305;
+// mod rsa;
+mod hmac;
 
 fn main() {
     println!("Hello from main.rs");
@@ -51,5 +53,7 @@ fn main() {
 //     aes::run();
 //    multi_maps::run();
 //     concurrent_multipmaps::run();
-    chacha20_poly1305::run();
+//     chacha20_poly1305::run();
+//     rsa::run();
+    hmac::run();
 }
