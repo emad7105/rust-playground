@@ -36,9 +36,20 @@ pub fn run() {
         } else if x % 3 == 0 {
             println!("fizz");
         } else if x % 5 == 0 {
-            println!("buzz")
+            println!("b0uzz")
         } else {
             println!("{}", x);
+        }
+    }
+
+
+    println!("starting dynamic vectors...");
+    let mut numbers: Vec<i32> = vec![1, 2, 3, 4, 5, 6];
+    loop {
+        println!("{:?}",numbers);
+        numbers.remove(0);
+        if numbers.len() == 0 {
+            break;
         }
     }
 }

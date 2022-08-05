@@ -6,7 +6,7 @@
 //mod arrays;
 //mod vectors;
 //mod conditionals;
-//mod loops;
+// mod loops;
 //mod functions;
 //mod pointers;
 //mod structs;
@@ -24,7 +24,10 @@
 // mod concurrent_multipmaps;
 // mod chacha20_poly1305;
 // mod rsa;
-mod hmac;
+// mod hmac;
+// mod errorhandling;
+// mod cmac;
+// mod blake2;
 
 fn main() {
     println!("Hello from main.rs");
@@ -55,5 +58,8 @@ fn main() {
 //     concurrent_multipmaps::run();
 //     chacha20_poly1305::run();
 //     rsa::run();
-    hmac::run();
+//     hmac::run();
+//     errorhandling::run();
+//     cmac::run();
+//     blake2::run();
 }

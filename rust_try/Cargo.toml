@@ -22,9 +22,16 @@ path = "src/grpc/server.rs"
 name = "helloworld-client"
 path = "src/grpc/client.rs"
 
+[[bin]]
+# -- grpc --
+# terminal: cargo run --bin helloworld-client
+name = "async-playground"
+path = "src/async/async_main.rs"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+async-recursion = "1.0.0"
 bincode = "1.2.1"
 serde = { version = "1.0.63", features = ["derive"] }
 rand = "0.8.4"
@@ -36,6 +43,12 @@ rsa = "0.5.0"
 hmac = "0.12.1"
 hex-literal = "0.3.4" # Hex utility
 sha2 = "0.10.2"
+anyhow = "1.0.57"
+hex = "0.4.3"
+cmac = "0.7.1"
+aes = "0.8.1"
+blake2 = "0.10.4"
+futures = "0.3.21"
 
 # -- grpc --
 tonic = "0.6.2" # grpc

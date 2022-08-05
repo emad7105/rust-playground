@@ -18,7 +18,9 @@
     <list default="true" id="ee383ead-a475-456f-944b-50f27b80c0c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aes.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aes.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chacha20_poly1305.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/chacha20_poly1305.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/loops.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/loops.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -160,17 +162,18 @@
       <recent name="$PROJECT_DIR$/src/grpc" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/async" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Cargo.Run default-run">
+  <component name="RunManager" selected="Cargo.Run async-playground">
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Expand rust_try::struct_serialization [rust_try]" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="expand --bin rust_try --color=always --theme=GitHub --tests struct_serialization" />
+    <configuration name="Run async-playground" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="run --package rust_try --bin async-playground" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <option name="channel" value="DEFAULT" />
       <option name="requiredFeatures" value="true" />
@@ -181,7 +184,9 @@
       <envs />
       <option name="isRedirectInput" value="false" />
       <option name="redirectInputPath" value="" />
-      <method v="2" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Run default-run" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="run --package rust_try --bin default-run" />
@@ -245,6 +250,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo.Run async-playground" />
         <item itemvalue="Cargo.Run default-run" />
         <item itemvalue="Cargo.Test aes::test_aes::test_encrypt_decrypt" />
         <item itemvalue="Cargo.Run rust_try" />
@@ -295,7 +301,18 @@
       <workItem from="1646657983502" duration="9316000" />
       <workItem from="1646904969815" duration="18691000" />
       <workItem from="1647506169031" duration="2984000" />
-      <workItem from="1647608184955" duration="864000" />
+      <workItem from="1647608184955" duration="7077000" />
+      <workItem from="1653653295032" duration="2038000" />
+      <workItem from="1654161280913" duration="5165000" />
+      <workItem from="1654591674465" duration="4148000" />
+      <workItem from="1654849884700" duration="595000" />
+      <workItem from="1654860135908" duration="6845000" />
+      <workItem from="1655738148877" duration="539000" />
+      <workItem from="1655847601804" duration="5768000" />
+      <workItem from="1655982623416" duration="17094000" />
+      <workItem from="1656488776143" duration="310000" />
+      <workItem from="1656933012124" duration="5207000" />
+      <workItem from="1657919253031" duration="18097000" />
     </task>
     <servers />
   </component>
@@ -376,6 +393,11 @@
           <url>file://$PROJECT_DIR$/src/enums.rs</url>
           <line>11</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.21/src/future.rs</url>
+          <line>2</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
