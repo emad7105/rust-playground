@@ -1,5 +1,5 @@
 use anyhow::{Result, Ok, anyhow};
-use futures::future::{BoxFuture, select_all, select_ok};
+use futures::future::{BoxFuture, join_all, select_all, select_ok, try_join_all};
 use futures::FutureExt;
 use tokio::time::{sleep, Duration};
 use async_recursion::async_recursion;
@@ -14,17 +14,27 @@ use async_recursion::async_recursion;
 
 pub async fn run() -> Result<()> {
 
-    println!("All tasks failing except one...");
+    println!("[select_ok] All tasks failing except one...");
     let futures_to_fail = prepare_futures_all_failing_except_one();
     let task_id= select_ok(futures_to_fail).await?;
     println!("Successful task: {:?}", task_id.0);
 
-    println!("\n\n\nAll tasks failing...");
+    println!("\n\n[select_ok] All tasks failing...");
     let futures_to_fail = prepare_futures_all_failing();
     let resp = select_ok(futures_to_fail).await;
     if resp.is_err() {
         println!("All tasks failed");
     }
+
+    println!("\n\n[try_join_all] All tasks failing except one...");
+    let futures_to_fail = prepare_futures_all_failing_except_one();
+    let result= try_join_all(futures_to_fail).await;
+    println!("All tasks failed because: {:?}", result.err().unwrap());
+
+    println!("\n\n[join_all] All tasks failing except one...");
+    let futures_to_fail = prepare_futures_all_failing_except_one();
+    let result= join_all(futures_to_fail).await;
+    println!("All tasks failed because: {:?}", result);
 
     Ok(())
 }
@@ -47,12 +57,11 @@ async fn get_async_task_to_fail(task_id: u32, seconds: u64) -> Result<u32> {
 
 
 fn prepare_futures_all_failing_except_one() -> Vec<BoxFuture<'static, Result<u32>>> {
-    let e = vec![
+    vec![
         Box::pin(get_async_task_to_fail_except_one(1, 3).boxed()),
         Box::pin(get_async_task_to_fail_except_one(2, 1).boxed()),
         Box::pin(get_async_task_to_fail_except_one(3, 2).boxed()),
     ]
-    e
 }
 
 async fn get_async_task_to_fail_except_one(task_id: u32, seconds: u64) -> Result<u32> {

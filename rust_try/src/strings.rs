@@ -40,4 +40,12 @@ pub fn run() {
     assert_eq!(10, s.capacity());
 
     println!("{}", s);
+
+    let msg1 = format!("OK");
+    let msg1_bytes = msg1.as_bytes();
+    let msg2 = format!("OK");
+    let msg2_bytes = msg2.as_bytes();
+    if msg1_bytes == msg2_bytes {
+        println!("OK is Equal");
+    }
 }

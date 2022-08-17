@@ -1,5 +1,5 @@
 use anyhow::{Result, Ok, anyhow};
-use futures::future::{BoxFuture, select_all, select_ok, try_join_all};
+use futures::future::{BoxFuture, join_all, select_all, select_ok, try_join_all};
 use futures::FutureExt;
 use tokio::time::{sleep, Duration};
 use async_recursion::async_recursion;
@@ -43,6 +43,10 @@ pub async fn run() -> Result<()> {
     /// and give you control as soon as all of the
     /// are  completed.
 
+    println!("----- try_join_all_example");
+    let futures5 = prepare_futures();
+    try_join_all_example(futures5).await?;
+
     println!("----- join_all_example");
     let futures5 = prepare_futures();
     join_all_example(futures5).await?;
@@ -82,8 +86,13 @@ async fn select_ok_example_ok_stop_fail_continue_recursive(futures: Vec<BoxFutur
     }
 }
 */
-async fn join_all_example(futures: Vec<BoxFuture<'static, Result<u32>>>) -> Result<()> {
+async fn try_join_all_example(futures: Vec<BoxFuture<'static, Result<u32>>>) -> Result<()> {
     let r = try_join_all(futures).await;
+    Ok(())
+}
+
+async fn join_all_example(futures: Vec<BoxFuture<'static, Result<u32>>>) -> Result<()> {
+    let r = join_all(futures).await;
     Ok(())
 }
 
