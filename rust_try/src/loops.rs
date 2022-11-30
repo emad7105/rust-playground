@@ -52,4 +52,12 @@ pub fn run() {
             break;
         }
     }
+
+    let max = 10;
+    max.loop
+    let n = 0;
+    loop 0..max {
+        println!("{:?}",n);
+        n += 1;
+    }
 }
