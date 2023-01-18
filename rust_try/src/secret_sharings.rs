@@ -1,10 +1,13 @@
 extern crate num_bigint;
 extern crate num_traits;
+
+use std::io::Read;
 use std::ops::Mul;
 use num_bigint::{BigInt, BigUint, ToBigInt, RandBigInt};
 use num_traits::{ToPrimitive, Zero};
 use anyhow::Result;
 use rand::rngs::ThreadRng;
+use blake2::Digest;
 
 
 
@@ -23,6 +26,19 @@ pub fn run() {
 
     println!("Multiplying 200 * 5 ...");
     test_mult_secret();
+
+    println!("Testing random PRFs ...");
+    test_prfs(&sss.prime);
+}
+
+pub fn test_prfs(prime: &BigUint) {
+    let mut rng = rand::thread_rng();
+    for i in 0..1000 {
+        let sk = &rng.gen_biguint_below(prime);
+        let data = &rng.gen_biguint_below(prime);
+        let prf_in_field = prf(&sk.to_bytes_be(), &data.to_bytes_be(), prime);
+        println!("prf_in_field: {:?}", prf_in_field);
+    }
 }
 
 pub fn test_adding_secret () {
@@ -65,6 +81,8 @@ trait Field {
     fn mul(&mut self, rhs: &Share, prime: &BigUint);
     fn mul_by_2(&mut self, prime: &BigUint);
     fn mul_by_3(&mut self, prime: &BigUint);
+    // fn to_bytes(&mut self) -> Vec<u8>;
+    // fn from_bytes(&mut self, bytes: &[u8]) -> Share;
 }
 
 #[derive(Clone)]
@@ -94,6 +112,22 @@ impl Field for Share {
     fn mul_by_3(&mut self, prime: &BigUint) {
         self.value = SecretSharing::mult_by_3(&self.value, prime);
     }
+}
+
+pub fn hash(value: &[u8]) -> Vec<u8> {
+    let mut hasher = blake2::Blake2s256::new();
+    hasher.update(value);
+    hasher.finalize().to_vec()
+}
+
+pub fn prf(sk: &[u8], data: &[u8], prime: &BigUint) -> BigUint {
+    let mut sk_data = vec![];
+    let mut sk_vec = &mut sk.to_vec();
+    let mut data_vec = &mut data.to_vec();
+    sk_data.append(sk_vec);
+    sk_data.append(data_vec);
+    let digest = hash(&sk_data);
+    BigUint::from_bytes_be(&digest) % prime
 }
 
 pub struct SecretSharing {
