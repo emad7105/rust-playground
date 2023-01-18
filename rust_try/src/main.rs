@@ -16,7 +16,7 @@
 // mod references;
 //mod passbyref;
 //mod struct_serialization;
-mod hashmap;
+// mod hashmap;
 // mod constant;
 // mod options;
 // mod aes;
@@ -28,6 +28,7 @@ mod hashmap;
 // mod errorhandling;
 // mod cmac;
 // mod blake2;
+mod secret_sharings;
 
 fn main() {
     println!("Hello from main.rs");
@@ -50,7 +51,7 @@ fn main() {
 //    references::run();
 //    passbyref::run();
 //    struct_serialization::serialize_deserialize();
-   hashmap::play_hashmap();
+//    hashmap::play_hashmap();
 //    constant::run();
 //    options::run();
 //     aes::run();
@@ -62,4 +63,5 @@ fn main() {
 //     errorhandling::run();
 //     cmac::run();
 //     blake2::run();
+    secret_sharings::run();
 }
