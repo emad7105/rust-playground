@@ -29,6 +29,24 @@ pub fn run() {
 
     println!("Testing random PRFs ...");
     test_prfs(&sss.prime);
+
+    println!("Testing byte conversions ...");
+    test_to_from_bytes();
+}
+
+pub fn test_to_from_bytes() {
+    let mut sss = SecretSharing::new();
+    let mut secret = &BigUint::from(5u128);
+    let mut shares = sss.split(secret).expect("splitting failed.");
+
+    let share_bytes = shares.0.to_bytes();
+    assert_eq!(17, share_bytes.len()); // 16 bytes or 16*8 bits + 1 byte (id)
+    let share_deserialized = Share::from_bytes(&share_bytes);
+    assert_eq!(shares.0, share_deserialized);
+
+    println!("share_bytes: {:?}", share_bytes);
+    println!("share_deserialized: {:?}", share_deserialized);
+    println!("shares.0: {:?}", shares.0);
 }
 
 pub fn test_prfs(prime: &BigUint) {
@@ -81,14 +99,14 @@ trait Field {
     fn mul(&mut self, rhs: &Share, prime: &BigUint);
     fn mul_by_2(&mut self, prime: &BigUint);
     fn mul_by_3(&mut self, prime: &BigUint);
-    // fn to_bytes(&mut self) -> Vec<u8>;
-    // fn from_bytes(&mut self, bytes: &[u8]) -> Share;
+    fn to_bytes(&mut self) -> Vec<u8>;
+    fn from_bytes(bytes: &[u8]) -> Share;
 }
 
-#[derive(Clone)]
+#[derive(Clone,Debug, PartialEq, Eq)]
 pub struct Share {
     value: BigUint,
-    id: u32,
+    id: u8,
 }
 
 impl Field for Share {
@@ -111,6 +129,21 @@ impl Field for Share {
 
     fn mul_by_3(&mut self, prime: &BigUint) {
         self.value = SecretSharing::mult_by_3(&self.value, prime);
+    }
+
+    fn to_bytes(&mut self) -> Vec<u8> {
+        let mut bytes = self.value.to_bytes_be();
+        bytes.push(self.id);
+        bytes.to_vec()
+    }
+
+    fn from_bytes(bytes: &[u8]) -> Share {
+        let value_bytes = &bytes[0..16];
+        let id = bytes[16];
+        Share {
+            value: BigUint::from_bytes_be(value_bytes),
+            id,
+        }
     }
 }
 
@@ -156,9 +189,9 @@ impl SecretSharing {
         let share_2 = SecretSharing::add(secret, &SecretSharing::mult_by_2(k, &self.prime), &self.prime);
         let share_3 = SecretSharing::add(secret, &SecretSharing::mult_by_3(k, &self.prime), &self.prime);
         Ok((
-            Share { value: share_1, id: 1u32 },
-            Share { value: share_2, id: 2u32 },
-            Share { value: share_3, id: 3u32 }
+            Share { value: share_1, id: 1u8 },
+            Share { value: share_2, id: 2u8 },
+            Share { value: share_3, id: 3u8 }
         ))
     }
 
