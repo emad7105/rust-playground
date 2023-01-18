@@ -51,6 +51,7 @@ blake2 = "0.10.4"
 futures = "0.3.21"
 num-bigint = {version="0.4.3", features = ["rand"] }
 num-traits = "0.2.15"
+rayon = "1.6.1"
 
 # -- grpc --
 tonic = "0.6.2" # grpc

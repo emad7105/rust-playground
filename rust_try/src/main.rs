@@ -28,7 +28,8 @@
 // mod errorhandling;
 // mod cmac;
 // mod blake2;
-mod secret_sharings;
+// mod secret_sharings;
+mod parallelism;
 
 fn main() {
     println!("Hello from main.rs");
@@ -63,5 +64,6 @@ fn main() {
 //     errorhandling::run();
 //     cmac::run();
 //     blake2::run();
-    secret_sharings::run();
+//     secret_sharings::run();
+    parallelism::run();
 }
